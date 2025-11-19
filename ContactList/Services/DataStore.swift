@@ -5,8 +5,11 @@
 //  Created by Anzhelika on 16.11.25.
 //
 
-final class DataSource {
-    static let names = [
+final class DataStore {
+    
+    static let shared = DataStore()
+    
+    let names = [
         "Tim",
         "Steave",
         "Bill",
@@ -19,7 +22,7 @@ final class DataSource {
         "Michael"
     ]
 
-    static let surnames = [
+    let surnames = [
         "Cook",
         "Jobs",
         "Gates",
@@ -32,7 +35,7 @@ final class DataSource {
         "Kruger"
     ]
 
-    static let phones = [
+    let phones = [
         "+1(123)433-96-571",
         "+1(123)899-70-117",
         "+1(123)433-96-572",
@@ -45,7 +48,7 @@ final class DataSource {
         "+1(123)583-17-314"
     ]
 
-    static let emails = [
+    let emails = [
       "timmCook@apple.com",
       "steaveJobs@apple.com",
       "billGates@microsoft.com",
@@ -57,6 +60,8 @@ final class DataSource {
       "kevinSystorm@apple.com",
       "michaelKruger@apple.com"
     ]
+    
+    private init() {}
 }
 
 

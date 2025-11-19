@@ -17,24 +17,29 @@ struct Contact: Hashable {
         "\(name) \(surname)"
     }
     
-    static func getContact() -> Set<Contact> {
-        var contactList: Set<Contact> = []
+    static func getContact() -> [Contact] {
+        var contactList: [Contact] = []
         
+        let store = DataStore.shared
         // определяем количество обьектов
-        let count = DataSource.names.count
         
-        // перебираем массивы
+        let name = store.names.shuffled()
+        let surname = store.surnames.shuffled()
+        let email = store.emails.shuffled()
+        let phone = store.phones.shuffled()
+        
+        let count = min(name.count, surname.count, email.count, phone.count)
+        
         for index in 0..<count {
-            let name = DataSource.names[index]
-            let surname = DataSource.surnames[index]
-            let email = DataSource.emails[index]
-            let phone = DataSource.phones[index]
-            
             // создаем обьект контакта
-            let contact = Contact(name: name, surname: surname, email: email, phone: phone)
+            let person = Contact(
+                name: name[index],
+                surname:surname[index],
+                email: email[index],
+                phone: phone[index])
             
             // добавляем обьект в неупорядоченую коллекцию
-            contactList.insert(contact)
+            contactList.append(person)
         }
         
         return contactList

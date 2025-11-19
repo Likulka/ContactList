@@ -26,3 +26,7 @@ final class ContactDetailsViewController: UIViewController {
     }
 
 }
+
+extension ContactDetailsViewController {
+  
+}

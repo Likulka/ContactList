@@ -10,13 +10,11 @@ import UIKit
 final class ContactTableViewController: UITableViewController {
 
     // MARK: - Private properties
-    private let contactListSet = Contact.getContact()
-    private var contactList: [Contact] = []
+    var contactList: [Contact]!
+    
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        contactList = contactListSet.shuffled()
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,7 +29,7 @@ final class ContactTableViewController: UITableViewController {
 extension ContactTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        contactList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
